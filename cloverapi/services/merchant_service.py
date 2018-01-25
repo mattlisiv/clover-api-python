@@ -71,7 +71,7 @@ class MerchantService(object):
         # Define Payload
         payload = {}
         # Send Request
-        r = requests.get(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestion', auth=self.auth, timeout=30,
+        r = requests.get(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestions', auth=self.auth, timeout=30,
                          params=payload)
         return r.json()
 
@@ -79,7 +79,7 @@ class MerchantService(object):
         # Define Payload
         payload = {}
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestion/' + tip_id, auth=self.auth,
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestions/' + tip_id, auth=self.auth,
                           timeout=30, params=payload)
         return r.json()
 
@@ -87,7 +87,7 @@ class MerchantService(object):
         # Define Payload
         payload = {}
         # Send Request
-        r = requests.get(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestion/' + tip_id, auth=self.auth,
+        r = requests.get(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestions/' + tip_id, auth=self.auth,
                          timeout=30, params=payload)
         return r.json()
 

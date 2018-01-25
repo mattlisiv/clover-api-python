@@ -1,2 +1,4 @@
 .idea/
 example.py
+cloverapi/__pycache__/
+cloverapi/services/__pycache__/
