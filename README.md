@@ -14,6 +14,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## General
 This is a Python client library for Clover API v3
 
+## Installation
+Installation for the package can be done via pip.
+
+```commandline
+    pip install cloverapi-python
+```
 
 ## Usage
 
