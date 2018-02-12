@@ -5,3 +5,5 @@ cloverapi/services/__pycache__/
 cloverapi/helpers/__pycache__/
 tests/__pycache__/
 .pytest_cache/*
+cloverapi_python.egg-info/
+dist/
