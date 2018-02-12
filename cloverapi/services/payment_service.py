@@ -7,6 +7,62 @@ class PaymentService(object):
         self.merchant_id = merchant_id
         self.auth = api_authorization
 
+    # Authorizations
+    def get_authorizations(self):
+        payload = {}
+        # Send Request
+        r = requests.get(
+            self.url + '/v3/merchants/' + self.merchant_id + '/authorizations/',
+            auth=self.auth,
+            timeout=30,
+            params=payload
+        )
+        return r.json()
+
+    def create_authorizations(self, authorization):
+        payload = authorization
+        # Send Request
+        r = requests.post(
+            self.url + '/v3/merchants/' + self.merchant_id + '/authorizations/',
+            auth=self.auth,
+            timeout=30,
+            json=payload
+        )
+        return r.json()
+
+    def update_authorizations(self, authorization):
+        payload = authorization
+        # Send Request
+        r = requests.post(
+            self.url + '/v3/merchants/' + self.merchant_id + '/authorizations/' + authorization["id"],
+            auth=self.auth,
+            timeout=30,
+            json=payload
+        )
+        return r.json()
+
+    def delete_authorizations(self, authorization):
+        payload = authorization
+        # Send Request
+        r = requests.delete(
+            self.url + '/v3/merchants/' + self.merchant_id + '/authorizations/' + authorization["id"],
+            auth=self.auth,
+            timeout=30,
+            json=payload
+        )
+        return r.json()
+
+    def get_authorization_by_id(self, authorization_id):
+        payload = {}
+        # Send Request
+        r = requests.get(
+            self.url + '/v3/merchants/' + self.merchant_id + '/authorizations/' + authorization_id,
+            auth=self.auth,
+            timeout=30,
+            params=payload
+        )
+        return r.json()
+
     # Payments
     def get_payments(self):
         # Define Payload
@@ -23,7 +79,7 @@ class PaymentService(object):
         # Define Payload
         payload = {}
         # Send Request
-        r = requests.post(
+        r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/orders/' + order_id + '/payments/',
             auth=self.auth,
             timeout=30,
@@ -34,7 +90,7 @@ class PaymentService(object):
         # Define Payload
         payload = {}
         # Send Request
-        r = requests.post(
+        r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/employees/' + employee_id + '/payments/',
             auth=self.auth,
             timeout=30,
@@ -52,15 +108,15 @@ class PaymentService(object):
             params=payload)
         return r.json()
 
-    def update_payment_by_id(self, payment_id):
+    def update_payment_by_id(self, payment):
         # Define Payload
-        payload = {}
+        payload = payment
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/payments/' + payment_id,
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     # Refunds

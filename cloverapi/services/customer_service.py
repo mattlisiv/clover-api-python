@@ -7,7 +7,7 @@ class CustomerService(object):
         self.merchant_id = merchant_id
         self.auth = api_authorization
 
-# Customers
+    # Customers
 
     # CustomersCSV
     def get_customers_csv(self):
@@ -27,12 +27,12 @@ class CustomerService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def create_customers(self):
+    def create_customer(self, customer):
         # Define Payload
-        payload = {}
+        payload = customer
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/',
-                          auth=self.auth, timeout=30, params=payload)
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def get_customer_by_id(self, customer_id):
@@ -43,12 +43,12 @@ class CustomerService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def update_customer_by_id(self, customer_id):
+    def update_customer_by_id(self, customer):
         # Define Payload
-        payload = {}
+        payload = customer
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/' + customer_id,
-                          auth=self.auth, timeout=30, params=payload)
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/' + customer["id"],
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_customer_by_id(self, customer_id):
@@ -60,20 +60,21 @@ class CustomerService(object):
         return r.json()
 
     # PhoneNumbers
-    def create_customer_phone_number_by_id(self, customer_id):
+    def create_customer_phone_number_by_id(self, customer_id, phone_number):
         # Define Payload
-        payload = {}
+        payload = phone_number
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/phone_numbers', auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/phone_numbers', auth=self.auth, timeout=30, json=payload)
         return r.json()
 
-    def update_customer_phone_number_by_id(self, customer_id, phone_id):
+    def update_customer_phone_number_by_id(self, customer_id, phone_number):
         # Define Payload
-        payload = {}
+        payload = phone_number
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/phone_numbers/' + phone_id, auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/phone_numbers/' + phone_number["id"], auth=self.auth, timeout=30,
+                          json=payload)
         return r.json()
 
     def delete_customer_phone_number_by_id(self, customer_id, phone_id):
@@ -85,21 +86,21 @@ class CustomerService(object):
         return r.json()
 
     # Email Addresses
-    def create_customer_email_address_by_id(self, customer_id):
+    def create_customer_email_address_by_id(self, customer_id, email):
         # Define Payload
-        payload = {}
+        payload = email
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/email_addresses', auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/email_addresses', auth=self.auth, timeout=30, json=payload)
         return r.json()
 
-    def update_customer_email_address_by_id(self, customer_id, email_address_id):
+    def update_customer_email_address_by_id(self, customer_id, email):
         # Define Payload
-        payload = {}
+        payload = email
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/email_addresses/' + email_address_id,
-                          auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/email_addresses/' + email["id"],
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_customer_email_address_by_id(self, customer_id, email_address_id):
@@ -112,20 +113,20 @@ class CustomerService(object):
         return r.json()
 
     # Addresses
-    def create_customer_address_by_id(self, customer_id):
+    def create_customer_address_by_id(self, customer_id, address):
         # Define Payload
-        payload = {}
+        payload = address
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/addresses', auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/addresses', auth=self.auth, timeout=30, json=payload)
         return r.json()
 
-    def update_customer_address_by_id(self, customer_id, address_id):
+    def update_customer_address_by_id(self, customer_id, address):
         # Define Payload
-        payload = {}
+        payload = address
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/addresses/' + address_id, auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/addresses/' + address["id"], auth=self.auth, timeout=30, params=payload)
         return r.json()
 
     def delete_customer_address_by_id(self, customer_id, address_id):
@@ -137,20 +138,20 @@ class CustomerService(object):
         return r.json()
 
     # Cards
-    def create_customer_card_by_id(self, customer_id):
+    def create_customer_card_by_id(self, customer_id, card):
         # Define Payload
-        payload = {}
+        payload = card
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/cards', auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/cards', auth=self.auth, timeout=30, json=payload)
         return r.json()
 
-    def update_customer_card_by_id(self, customer_id, card_id):
+    def update_customer_card_by_id(self, customer_id, card):
         # Define Payload
-        payload = {}
+        payload = card
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/cards/' + card_id, auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/cards/' + card["id"], auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_customer_card_by_id(self, customer_id, card_id):
@@ -162,10 +163,10 @@ class CustomerService(object):
         return r.json()
 
     # Metadata
-    def create_customer_note_by_id(self, customer_id):
+    def create_customer_note_by_id(self, customer_id, customer_metadata):
         # Define Payload
-        payload = {}
+        payload = customer_metadata
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/customers/'
-                          + customer_id + '/metadata', auth=self.auth, timeout=30, params=payload)
+                          + customer_id + '/metadata', auth=self.auth, timeout=30, json=payload)
         return r.json()

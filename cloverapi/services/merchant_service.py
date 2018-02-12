@@ -15,9 +15,9 @@ class MerchantService(object):
         r = requests.get(self.url + '/v3/merchants/' + self.merchant_id, auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def update_merchant(self):
+    def update_merchant(self, merchant):
         # Define Payload
-        payload = {}
+        payload = merchant
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id, auth=self.auth, timeout=30, params=payload)
         return r.json()
@@ -49,12 +49,12 @@ class MerchantService(object):
                          params=payload)
         return r.json()
 
-    def update_properties(self):
+    def update_properties(self, properties):
         # Define Payload
-        payload = {}
+        payload = properties
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/properties', auth=self.auth, timeout=30,
-                          params=payload)
+                          json=payload)
         return r.json()
 
     # Default Service Charge
@@ -75,12 +75,12 @@ class MerchantService(object):
                          params=payload)
         return r.json()
 
-    def update_tip_suggestion_by_id(self, tip_id):
+    def update_tip_suggestion_by_id(self, tip_suggestion):
         # Define Payload
-        payload = {}
+        payload = tip_suggestion
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestions/' + tip_id, auth=self.auth,
-                          timeout=30, params=payload)
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tip_suggestions/' + tip_suggestion["id"], auth=self.auth,
+                          timeout=30, json=payload)
         return r.json()
 
     def get_tip_suggestion_by_id(self, tip_id):
@@ -100,12 +100,12 @@ class MerchantService(object):
                          timeout=30, params=payload)
         return r.json()
 
-    def create_order_types(self):
+    def create_order_types(self, order_type):
         # Define Payload
-        payload = {}
+        payload = order_type
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/order_types/', auth=self.auth, timeout=30,
-                          params=payload)
+                          json=payload)
         return r.json()
 
     def get_order_type_by_id(self, order_type_id):
@@ -116,12 +116,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def update_order_type_by_id(self, order_type_id):
+    def update_order_type_by_id(self, order_type):
         # Define Payload
-        payload = {}
+        payload = order_type
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/order_types/' + order_type_id,
-                          auth=self.auth, timeout=30, params=payload)
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/order_types/' + order_type["id"],
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_order_type_by_id(self, order_type_id):
@@ -158,12 +158,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def create_role(self):
+    def create_role(self, role):
         # Define Payload
-        payload = {}
+        payload = role
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/roles/',
-                          auth=self.auth, timeout=30, params=payload)
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def get_role_by_id(self, role_id):
@@ -174,12 +174,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def update_role_by_id(self, role_id):
+    def update_role_by_id(self, role):
         # Define Payload
-        payload = {}
+        payload = role
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/roles/' + role_id,
-                          auth=self.auth, timeout=30, params=payload)
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/roles/' + role["id"],
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_role_by_id(self, role_id):
@@ -199,12 +199,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def add_tender(self):
+    def add_tender(self, tender):
         # Define Payload
-        payload = {}
+        payload = tender
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tenders/',
-                          auth=self.auth, timeout=30, params=payload)
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def get_tender_by_id(self, tender_id):
@@ -215,12 +215,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def update_tender_by_id(self, tender_id):
+    def update_tender_by_id(self, tender):
         # Define Payload
-        payload = {}
+        payload = tender
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tenders/' + tender_id,
-                          auth=self.auth, timeout=30, params=payload)
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/tenders/' + tender["id"],
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_tender_by_id(self, tender_id):
@@ -240,12 +240,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def create_opening_hours(self):
+    def create_opening_hours(self, opening_hour):
         # Define Payload
-        payload = {}
+        payload = opening_hour
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/opening_hours/',
-                          auth=self.auth, timeout=30, params=payload)
+                          auth=self.auth, timeout=30, json=opening_hour)
         return r.json()
 
     def get_opening_hours_by_id(self, opening_hours_id):
@@ -256,12 +256,12 @@ class MerchantService(object):
                          auth=self.auth, timeout=30, params=payload)
         return r.json()
 
-    def update_opening_hours_by_id(self, opening_hours_id):
+    def update_opening_hours_by_id(self, opening_hour):
         # Define Payload
-        payload = {}
+        payload = opening_hour
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/opening_hours/' + opening_hours_id,
-                          auth=self.auth, timeout=30, params=payload)
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/opening_hours/' + opening_hour["id"],
+                          auth=self.auth, timeout=30, json=payload)
         return r.json()
 
     def delete_opening_hours_by_id(self, opening_hours_id):

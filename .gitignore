@@ -2,3 +2,6 @@
 example.py
 cloverapi/__pycache__/
 cloverapi/services/__pycache__/
+cloverapi/helpers/__pycache__/
+tests/__pycache__/
+.pytest_cache/*

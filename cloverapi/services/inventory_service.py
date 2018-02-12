@@ -21,15 +21,15 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_inventory_item(self):
+    def create_inventory_item(self, item):
         # Define Payload
-        payload = {}
+        payload = item
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/items',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def bulk_delete_inventory_items(self):
@@ -54,26 +54,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def update_inventory_item_by_id(self, inventory_id):
+    def update_inventory_item_by_id(self, inventory_item):
         # Define Payload
-        payload = {}
+        payload = inventory_item
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/items/' + inventory_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/items/' + inventory_item["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def patch_inventory_item_by_id(self, inventory_id):
+    def patch_inventory_item_by_id(self, inventory_item):
         # Define Payload
-        payload = {}
+        payload = inventory_item
         # Send Request
         r = requests.patch(
-            self.url + '/v3/merchants/' + self.merchant_id + '/items/' + inventory_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/items/' + inventory_item["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_inventory_item_by_id(self, inventory_id):
@@ -143,15 +143,15 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def update_item_stock_by_id(self, item_id):
+    def update_item_stock_by_id(self, item_id, item_stock):
         # Define Payload
-        payload = {}
+        payload = item_stock
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/item_stocks/' + item_id,
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_item_stock_by_id(self, item_id):
@@ -188,26 +188,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_item_group(self):
+    def create_item_group(self, item_group):
         # Define Payload
-        payload = {}
+        payload = item_group
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/item_groups',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_item_group_by_id(self, item_group_id):
+    def update_item_group_by_id(self, item_group):
         # Define Payload
-        payload = {}
+        payload = item_group
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/item_groups/' + item_group_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/item_groups/' + item_group["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_item_group_by_id(self, item_group_id):
@@ -244,26 +244,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_tag(self):
+    def create_tag(self, tag):
         # Define Payload
-        payload = {}
+        payload = tag
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/tags',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_tag_by_id(self, tag_id):
+    def update_tag_by_id(self, tag):
         # Define Payload
-        payload = {}
+        payload = tag
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/tags/' + tag_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/tags/' + tag["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_tag_by_id(self, tag_id):
@@ -289,15 +289,15 @@ class InventoryService(object):
         return r.json()
 
     # Tag Items
-    def create_or_delete_tag_items(self):
+    def create_or_delete_tag_items(self, tag_item):
         # Define Payload
-        payload = {}
+        payload = tag_item
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/tag_items/',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     # Tax Rates
@@ -323,26 +323,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_tax_rate(self):
+    def create_tax_rate(self, tax_rate):
         # Define Payload
-        payload = {}
+        payload = tax_rate
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/tax_rates',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_tax_rate_by_id(self, tax_rate_id):
+    def update_tax_rate_by_id(self, tax_rate):
         # Define Payload
-        payload = {}
+        payload = tax_rate
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/tax_rates/' + tax_rate_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/tax_rates/' + tax_rate["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_tax_rate_by_id(self, tax_rate_id):
@@ -379,26 +379,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_category(self):
+    def create_category(self, category):
         # Define Payload
-        payload = {}
+        payload = category
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/categories',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_category_by_id(self, category_id):
+    def update_category_by_id(self, category):
         # Define Payload
-        payload = {}
+        payload = category
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/categories/' + category_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/categories/' + category["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_category_by_id(self, category_id):
@@ -468,26 +468,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_modifier_group(self):
+    def create_modifier_group(self, modifier_group):
         # Define Payload
-        payload = {}
+        payload = modifier_group
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/modifier_groups',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_modifier_group_by_id(self, modifier_group_id):
+    def update_modifier_group_by_id(self, modifier_group):
         # Define Payload
-        payload = {}
+        payload = modifier_group
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/modifier_groups/' + modifier_group_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/modifier_groups/' + modifier_group["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_modifier_group_by_id(self, modifier_group_id):
@@ -514,15 +514,15 @@ class InventoryService(object):
         return r.json()
 
     # ModifierGroupSortOrders
-    def update_modifier_group_sort_orders(self):
+    def update_modifier_group_sort_orders(self, modifier_group_array):
         # Define Payload
-        payload = {}
+        payload = modifier_group_array
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/modifier_group_sort_orders',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     # Modifiers
@@ -560,27 +560,27 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_modifier(self, modifier_group_id):
+    def create_modifier(self, modifier_group_id, modifier):
         # Define Payload
-        payload = {}
+        payload = modifier
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/modifier_groups/' + modifier_group_id + '/modifiers',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_modifier(self, modifier_group_id, modifier_id):
+    def update_modifier(self, modifier_group_id, modifier):
         # Define Payload
-        payload = {}
+        payload = modifier
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/modifier_groups/' + modifier_group_id + '/modifiers/'
-            + modifier_id,
+            + modifier["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_modifier(self, modifier_group_id, modifier_id):
@@ -618,26 +618,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_attribute(self):
+    def create_attribute(self, attribute):
         # Define Payload
-        payload = {}
+        payload = attribute
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/attributes',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_attribute_by_id(self, attribute_id):
+    def update_attribute_by_id(self, attribute):
         # Define Payload
-        payload = {}
+        payload = attribute
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/attributes/' + attribute_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/attributes/' + attribute["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_attribute_by_id(self, attribute_id):
@@ -685,26 +685,26 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def create_option(self, attribute_id):
+    def create_option(self, attribute_id, option):
         # Define Payload
-        payload = {}
+        payload = option
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/attributes/' + attribute_id + '/options',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
-    def update_option_by_id(self, attribute_id, option_id):
+    def update_option_by_id(self, attribute_id, option):
         # Define Payload
-        payload = {}
+        payload = option
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/attributes/' + attribute_id + '/options/' + option_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/attributes/' + attribute_id + '/options/' + option["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_option_by_id(self, attribute_id, option_id):

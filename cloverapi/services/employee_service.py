@@ -16,12 +16,12 @@ class EmployeeService(object):
                          params=payload)
         return r.json()
 
-    def create_employee(self):
+    def create_employee(self, employee):
         # Define Payload
-        payload = {}
+        payload = employee
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/employees/', auth=self.auth,
-                          timeout=30, params=payload)
+                          timeout=30, json=payload)
         return r.json()
 
     def get_employee_by_id(self, employee_id):
@@ -33,11 +33,11 @@ class EmployeeService(object):
                          params=payload)
         return r.json()
 
-    def update_employee_by_id(self, employee_id):
+    def update_employee_by_id(self, employee):
         # Define Payload
-        payload = {}
+        payload = employee
         # Send Request
-        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/employees/' + employee_id, auth=self.auth,
+        r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/employees/' + employee["id"], auth=self.auth,
                           timeout=30,
                           params=payload)
         return r.json()
@@ -81,14 +81,14 @@ class EmployeeService(object):
                          params=payload)
         return r.json()
 
-    def create_shift_by_employee_id(self, employee_id):
+    def create_shift_by_employee_id(self, employee_id, shift):
         # Define Payload
-        payload = {}
+        payload = shift
         # Send Request
         r = requests.post(self.url + '/v3/merchants/' + self.merchant_id + '/employees/' + employee_id + '/shifts',
                           auth=self.auth,
                           timeout=30,
-                          params=payload)
+                          json=payload)
         return r.json()
 
     def get_employee_shift_by_shift_id(self, employee_id, shift_id):
@@ -102,15 +102,15 @@ class EmployeeService(object):
                          params=payload)
         return r.json()
 
-    def update_employee_shift_by_shift_id(self, employee_id, shift_id):
+    def update_employee_shift_by_shift_id(self, employee_id, shift):
         # Define Payload
         payload = {}
         # Send Request
         r = requests.post(
-            self.url + '/v3/merchants/' + self.merchant_id + '/employees/' + employee_id + '/shifts/' + shift_id,
+            self.url + '/v3/merchants/' + self.merchant_id + '/employees/' + employee_id + '/shifts/' + shift["id"],
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def delete_employee_shift_by_shift_id(self, employee_id, shift_id):
@@ -160,15 +160,15 @@ class EmployeeService(object):
             params=payload)
         return r.json()
 
-    def update_employee_cards(self):
+    def create_employee_cards(self, employee_card):
         # Define Payload
-        payload = {}
+        payload = employee_card
         # Send Request
         r = requests.post(
             self.url + '/v3/merchants/' + self.merchant_id + '/employee_cards',
             auth=self.auth,
             timeout=30,
-            params=payload)
+            json=payload)
         return r.json()
 
     def get_employee_card_by_id(self, employee_card_id):
