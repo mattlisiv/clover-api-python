@@ -10,9 +10,9 @@ class InventoryService(object):
     # Inventory
 
     # Items
-    def get_inventory_items(self):
+    def get_inventory_items(self, offset=0, limit=100):
         # Define Payload
-        payload = {}
+        payload = {'offset': offset, 'limit': limit}
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/items',
@@ -87,9 +87,9 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def get_items_by_tag_id(self, tag_id):
+    def get_items_by_tag_id(self, tag_id, offset=0, limit=100):
         # Define Payload
-        payload = {}
+        payload = {'offset': offset, 'limit': limit}
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/tags/' + tag_id + '/items',
@@ -98,9 +98,9 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def get_items_by_category_id(self, category_id):
+    def get_items_by_category_id(self, category_id, offset=0, limit=100):
         # Define Payload
-        payload = {}
+        payload = {'offset': offset, 'limit': limit}
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/categories/' + category_id + '/items',
@@ -109,9 +109,9 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def get_items_by_tax_rate(self, tax_rate_id):
+    def get_items_by_tax_rate(self, tax_rate_id, offset=0, limit=100):
         # Define Payload
-        payload = {}
+        payload = {'offset': offset, 'limit': limit}
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/tax_rates/' + tax_rate_id + '/items',
@@ -121,9 +121,9 @@ class InventoryService(object):
         return r.json()
 
     # Item Stocks
-    def get_item_stocks(self):
+    def get_item_stocks(self, offset=0, limit=100):
         # Define Payload
-        payload = {}
+        payload = {'offset': offset, 'limit': limit}
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/item_stocks',
@@ -132,9 +132,9 @@ class InventoryService(object):
             params=payload)
         return r.json()
 
-    def get_item_stock_by_id(self, item_id):
+    def get_item_stock_by_id(self, item_id, offset=0, limit=100):
         # Define Payload
-        payload = {}
+        payload = {'offset': offset, 'limit': limit}
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/item_stocks/' + item_id,
