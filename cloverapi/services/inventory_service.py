@@ -10,9 +10,13 @@ class InventoryService(object):
     # Inventory
 
     # Items
-    def get_inventory_items(self, offset=0, limit=100):
+    def get_inventory_items(self, offset=0, limit=100, filter=None, expand=None):
         # Define Payload
         payload = {'offset': offset, 'limit': limit}
+        if filter is not None:
+            payload['filter'] = filter
+        if expand is not None:
+            payload['expand'] = expand
         # Send Request
         r = requests.get(
             self.url + '/v3/merchants/' + self.merchant_id + '/items',
