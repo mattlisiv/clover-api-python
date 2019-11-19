@@ -191,9 +191,11 @@ class MerchantService(object):
         return r.json()
 
     # Tenders
-    def get_tenders(self):
+    def get_tenders(self, filter=None):
         # Define Payload
         payload = {}
+        if filter is not None:
+            payload['filter'] = filter
         # Send Request
         r = requests.get(self.url + '/v3/merchants/' + self.merchant_id + '/tenders/',
                          auth=self.auth, timeout=30, params=payload)
