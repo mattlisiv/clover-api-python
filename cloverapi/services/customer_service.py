@@ -37,7 +37,7 @@ class CustomerService(object):
 
     def get_customer_by_id(self, customer_id):
         # Define Payload
-        payload = {}
+        payload = {'expand': 'emailAddresses'}
         # Send Request
         r = requests.get(self.url + '/v3/merchants/' + self.merchant_id + '/customers/' + customer_id,
                          auth=self.auth, timeout=30, params=payload)
