@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 install_requires = [
-    'requests==2.20.0'
+    'requests>=2.20.0'
 ]
 
 tests_require = [
@@ -12,7 +12,7 @@ tests_require = [
 
 setup(
     name='cloverapi-python',
-    version='0.0.2',
+    version='0.0.3',
     author='Matt Lisivick',
     author_email='lisivickmatt@gmail.com',
     license='MIT',
